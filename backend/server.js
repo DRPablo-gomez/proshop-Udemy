@@ -1,4 +1,5 @@
 import express from 'express'
+import cookieParser from 'cookie-parser'
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
@@ -11,6 +12,9 @@ const app = express()
 //Body Parser middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// Cookie parser middleware
+app.use(cookieParser())
 
 app.get("/", (req, res) => {
   res.send('API is running...')
